@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Shelf",
+  "version": "1.0.0",
+  "description": "Save windows of tabs to a clear, permanent list. Open one tab at a time; the link stays on the shelf.",
+  "permissions": ["tabs", "storage", "unlimitedStorage", "favicon"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "Tab Shelf",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" }
+  },
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "commands": {
+    "_execute_action": { "suggested_key": { "default": "Alt+Shift+S" } }
+  }
+}

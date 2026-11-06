@@ -1,0 +1,78 @@
+:root {
+  --bg: #fafaf8; --fg: #1d1d1b; --mut: #6b6b66; --acc: #c2410c; --acc-soft: #fdebe0;
+  --card: #ffffff; --bd: #e5e4df; --hover: #f3f2ee; --ok: #15803d; --ok-soft: #dcfce7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #191917; --fg: #ecebe6; --mut: #9a9993; --acc: #fb923c; --acc-soft: #3a2518;
+    --card: #232320; --bd: #34332f; --hover: #2b2a27; --ok: #4ade80; --ok-soft: #173322;
+  }
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; }
+button {
+  font: inherit; font-size: 13px; color: var(--fg); background: var(--card); border: 1px solid var(--bd);
+  border-radius: 8px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
+}
+button:hover { background: var(--hover); }
+button.primary { background: var(--acc); border-color: var(--acc); color: #fff; }
+button.primary:hover { filter: brightness(1.08); }
+button.ghost { background: transparent; }
+button.danger { color: #b91c1c; border-color: #fca5a5; }
+button:disabled { opacity: .5; cursor: default; }
+input[type=text], input[type=search] {
+  font: inherit; color: var(--fg); background: var(--card); border: 1px solid var(--bd);
+  border-radius: 8px; padding: 8px 12px; outline: none;
+}
+input:focus { border-color: var(--acc); }
+
+/* page */
+.top {
+  position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--bd);
+}
+.top-inner { max-width: 1000px; margin: auto; padding: 14px 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; margin-right: 8px; }
+.brand img { width: 28px; height: 28px; }
+.brand h1 { font-size: 19px; margin: 0; }
+.brand .stats { font-size: 12px; color: var(--mut); }
+#search { flex: 1; min-width: 200px; }
+main { max-width: 1000px; margin: auto; padding: 8px 16px 80px; }
+.empty { color: var(--mut); text-align: center; padding: 60px 0; }
+
+/* groups */
+.group { margin-top: 18px; }
+.ghead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.chev { width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: var(--mut); font-size: 13px; transition: transform .15s; }
+.group.collapsed .chev { transform: rotate(-90deg); }
+.gtitle { flex: 1; min-width: 180px; cursor: pointer; }
+.gname { font-weight: 600; font-size: 16px; outline: none; border-radius: 4px; padding: 0 2px; }
+.gname[contenteditable=true] { background: var(--card); box-shadow: 0 0 0 2px var(--acc); cursor: text; }
+.gmeta { font-size: 12px; color: var(--mut); }
+.gactions { display: flex; gap: 6px; }
+.group.collapsed ol { display: none; }
+
+ol { list-style: none; margin: 8px 0 0; padding: 4px; background: var(--card); border: 1px solid var(--bd); border-radius: 10px; }
+li { display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 6px; }
+li:hover { background: var(--hover); }
+li img { width: 16px; height: 16px; flex: none; }
+.ltext { flex: 1; min-width: 0; }
+.ltext a { color: var(--fg); text-decoration: none; font-weight: 500; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ltext a:hover { color: var(--acc); }
+.ltext span { display: block; font-size: 12px; color: var(--mut); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+li.open { background: var(--ok-soft); }
+.badge { font-size: 11px; font-weight: 600; color: var(--ok); border: 1px solid currentColor; border-radius: 99px; padding: 1px 8px; }
+.ibtn { border: 0; background: transparent; color: var(--mut); padding: 4px 8px; font-size: 12px; visibility: hidden; }
+li:hover .ibtn, li.open .ibtn { visibility: visible; }
+.ibtn:hover { color: var(--fg); background: var(--bd); }
+mark { background: var(--acc-soft); color: inherit; border-radius: 2px; }
+
+/* toast */
+#toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(120px);
+  background: var(--fg); color: var(--bg); padding: 10px 14px; border-radius: 10px; display: flex; gap: 14px; align-items: center;
+  transition: transform .2s; font-size: 14px; max-width: calc(100% - 32px);
+}
+#toast.show { transform: translateX(-50%) translateY(0); }
+#toast button { background: transparent; color: var(--bg); border-color: var(--bg); }
+.hint { font-size: 12px; color: var(--mut); margin: 14px 0 0; }
+@media (max-width: 600px) { #search { width: 100%; } .ibtn { visibility: visible; } }
