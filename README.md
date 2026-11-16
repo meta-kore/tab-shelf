@@ -1,5 +1,7 @@
 # Tab Shelf
 
+<img src="assets/plate.gif" alt="Plate 03, Tab Shelf: saved tabs sit on a shelf; one lifts out to be opened and the saved copy stays in place." width="100%">
+
 Save windows full of tabs to a clean, searchable list, then open them **one at a time** when you need them. Clicking a link opens the tab; the link **stays on the shelf** for next time.
 
 Built after losing several windows of tabs to tab managers that delete a saved window the moment you try to restore it. Tab Shelf never removes anything unless you ask it to, and every delete can be undone.
